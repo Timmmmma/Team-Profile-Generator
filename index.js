@@ -1,14 +1,17 @@
 const inquirer = require('inquirer');
 const fs = require("fs");
+
+//Include packages needed for this application
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
+//set up a team array
 const teamArray = [];
 
 
-
+//Create an array of questions for user input
 function addMember() {
     inquirer.prompt([
         {
@@ -80,10 +83,12 @@ function addMember() {
 
             console.log(employee);
         }
-
+        //Each employee would be push in team array
         teamArray.push(employee); 
 
         console.log(teamArray);
+
+        //User will be ask to continue or not
         if(moreMembers === "yes"){
             addMember()
         }else {
@@ -94,6 +99,7 @@ function addMember() {
     
 }
 
+//End application
 function quit() {
     console.log("\nGoodbye!");
     process.exit(0);
@@ -101,15 +107,7 @@ function quit() {
 
 addMember()
 
-
-
-
-//Create a function to write html file
-//function writeToFile() {
-    //console.log("Processing!");
-    //fs.writeFile('./dist/index.html', generateMarkdown(teamArray));
-//}
-
+// //A functon to write file
 function writeToFile () {
     console.log("Processing!");
     fs.writeFileSync(
