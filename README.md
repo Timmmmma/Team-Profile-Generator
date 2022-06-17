@@ -16,7 +16,7 @@
   ## Usage 
   Answer some question then the index.html file is generated automatically and saved in dist folder.
   <a href="https://drive.google.com/file/d/1xLVKXtXtDXIHsGFwo08TLDGAFrch_lBD/view?usp=sharing">Screencastify</a>
-  ![image](https://github.com/Timmmmma/05-Third-Party-APIs-Work-Day-Scheduler/blob/main/assets/images/Work%20Day%20Scheduler%20-%20Challenge%205_%20Third-Party%20APIs.png)
+  ![image](https://github.com/Timmmmma/Team-Profile-Generator/blob/main/image/Team%20Profile.png)
   ## License 
   ISC
   ## Contributing 
