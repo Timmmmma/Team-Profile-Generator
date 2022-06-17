@@ -1,10 +1,10 @@
 
-// create Manager card
+// receive manager info then create card
 const generateManager = function (manager) {
     return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-header">
+        <div class="card employee-card">
+            <div class="card-header" style="background-color:powderblue;">
                 <h3>${manager.name}</h3>
                 <h4><i class="bi bi-clipboard2-check-fill"></i>Manager</h4>
             </div>
@@ -18,12 +18,12 @@ const generateManager = function (manager) {
     `;
 }
 
-// create Engineer card
+// receive engineer info then create card
 const generateEngineer = function (engineer) {
     return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-header">
+        <div class="card employee-card">
+            <div class="card-header" style="background-color:yellowgreen;">
                 <h3>${engineer.name}</h3>
                 <h4><i class="bi bi-laptop-fill"></i>Engineer</h4>
             </div>
@@ -37,12 +37,12 @@ const generateEngineer = function (engineer) {
     `
 }
 
-// create Intern card 
+// receive intern info then create card
 const generateIntern = function (intern) {
     return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-header">
+        <div class="card employee-card">
+            <div class="card-header" style="background-color:lightsalmon;">
                 <h3>${intern.name}</h3>
                 <h4><i class="bi bi-person-badge"></i>Intern</h4>
             </div>
@@ -56,44 +56,36 @@ const generateIntern = function (intern) {
     `
 };
 
-// push array to page 
+// receive teamArray from index.js
 generateMarkdown = (data) => {
-
-    // array for cards 
-    pageArray = []; 
+    cardArray = []; 
 
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
         const role = employee.getRole(); 
 
-
-        // call manager function
         if (role === 'Manager') {
             const managerCard = generateManager(employee);
 
-            pageArray.push(managerCard);
+            cardArray.push(managerCard);
         }
 
-        // call engineer function
         if (role === 'Engineer') {
             const engineerCard = generateEngineer(employee);
 
-            pageArray.push(engineerCard);
+            cardArray.push(engineerCard);
         }
 
-        // call intern function 
         if (role === 'Intern') {
             const internCard = generateIntern(employee);
 
-            pageArray.push(internCard);
+            cardArray.push(internCard);
         }
         
     }
 
-    // joining strings 
-    const employeeCards = pageArray.join('')
 
-    // return to generated page
+    const employeeCards = cardArray.join('')
     const generateTeam = generateTeamPage(employeeCards); 
     return generateTeam;
 
@@ -113,10 +105,8 @@ const generateTeamPage = function (employeeCards) {
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
   </head>
   <body>
-      <header class="jumbotron" >
-          <nav class="navbar" id="navbar">
-              <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
-          </nav>
+      <header class="jumbotron" >        
+      <h1 class="text-center">Team Profile</h1>      
       </header>
       <main>
           <div class="container">
